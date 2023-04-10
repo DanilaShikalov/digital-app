@@ -11,11 +11,19 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
-
+    <string name="ek_img_content">ExportKit Image</string>
+    <string name="welcome_back__string">Welcome Back!</string>
+    <string name="please_log_into_your_existing_account_string">Please Log into your existing account</string>
+    <string name="your_email_string">Your Email</string>
+    <string name="your_password_string">Your Password</string>
+    <string name="log_in_string">Log in</string>
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="first_name">First name</string>
     <string name="last_name">Last name</string>
     <string name="email">Email</string>
+    <string name="register_please__string">Register please!</string>
+    <string name="your_last_name_string">Your last name</string>
+    <string name="your_first_name_string">Your first name</string>
 </resources>

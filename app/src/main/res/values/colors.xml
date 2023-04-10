@@ -7,4 +7,13 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="_bg__sing_up_ek2_color">#0A0170</color>
+    <color name="register_please__color">#FFFFFF</color>
+    <color name="_bg__google_pixel_2___1_ek2_color">#0A0170</color>
+    <color name="welcome_back__color">#FFFFFF</color>
+    <color name="rectangle_4_color">#ffffff</color>
+    <color name="rectangle_6_color">#2AC88F</color>
 </resources>
