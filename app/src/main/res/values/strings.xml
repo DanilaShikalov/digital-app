@@ -31,4 +31,6 @@
     <string name="menu_settings">Settings</string>
     <string name="Settings">Settings</string>
     <string name="your_phone">Your phone</string>
+    <string name="set_file">Add document</string>
+    <string name="save">Save</string>
 </resources>

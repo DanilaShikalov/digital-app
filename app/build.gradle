@@ -59,4 +59,6 @@ dependencies {
     testImplementation "org.junit.jupiter:junit-jupiter-params:5.3.2"
 
     implementation 'android.arch.lifecycle:extensions:1.1.1'
+
+    implementation 'commons-io:commons-io:2.5'
 }

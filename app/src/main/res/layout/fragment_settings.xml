@@ -24,23 +24,12 @@
                         android:layout_marginTop="0dp"
                         android:background="@drawable/_bg__google_pixel_2___1_ek2_shape" />
 
-                    <TextView
-                        android:id="@+id/welcome_back_"
-                        android:layout_width="176dp"
-                        android:layout_height="37dp"
-                        android:layout_marginStart="155dp"
-                        android:layout_marginTop="100dp"
-                        android:text="@string/Settings"
-                        android:textColor="@color/welcome_back__color"
-                        android:textSize="26sp"
-                        android:textStyle="bold" />
-
                     <RelativeLayout
                         android:id="@+id/group_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="38dp"
-                        android:layout_marginTop="170dp" >
+                        android:layout_marginTop="40dp" >
 
                         <View
                             android:id="@+id/rectangle_4"
@@ -58,7 +47,6 @@
                             android:layout_marginTop="10dp"
                             android:hint="@string/your_email_string"
                             android:minHeight="48dp"
-                            android:text="@={MainViewModel.email}"
                             android:textColor="@color/black"
                             android:textSize="14sp" />
 
@@ -66,7 +54,7 @@
                             android:layout_width="337dp"
                             android:layout_height="60dp"
                             android:layout_marginStart="0dp"
-                            android:layout_marginTop="74dp"
+                            android:layout_marginTop="90dp"
                             android:background="@drawable/rectangle_5_shape" />
 
                         <EditText
@@ -74,10 +62,9 @@
                             android:layout_width="290dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="20dp"
-                            android:layout_marginTop="83dp"
+                            android:layout_marginTop="99dp"
                             android:hint="@string/your_password_string"
                             android:minHeight="48dp"
-                            android:text="@={MainViewModel.password}"
                             android:textColor="@color/black"
                             android:textSize="14sp" />
 
@@ -86,7 +73,7 @@
                             android:layout_width="337dp"
                             android:layout_height="60dp"
                             android:layout_marginStart="0dp"
-                            android:layout_marginTop="148dp"
+                            android:layout_marginTop="180dp"
                             android:background="@drawable/rectangle_5_shape" />
 
                         <EditText
@@ -94,10 +81,9 @@
                             android:layout_width="290dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="20dp"
-                            android:layout_marginTop="156dp"
+                            android:layout_marginTop="182dp"
                             android:hint="@string/your_phone"
                             android:minHeight="48dp"
-                            android:text="@={MainViewModel.password}"
                             android:textColor="@color/black"
                             android:textSize="14sp" />
 
@@ -106,35 +92,46 @@
                             android:layout_width="335dp"
                             android:layout_height="58dp"
                             android:layout_marginStart="0dp"
-                            android:layout_marginTop="222dp"
-                            android:background="@android:drawable/btn_dropdown_normal"
+                            android:layout_marginTop="270dp"
+                            android:background="@android:drawable/btn_dropdown"
                             android:spinnerMode="dropdown" />
 
-                        <Button
+                        <View
                             android:id="@+id/choose_file_button"
                             android:layout_width="335dp"
                             android:layout_height="58dp"
                             android:layout_marginStart="0dp"
-                            android:layout_marginTop="280dp"
-                            android:background="@android:drawable/btn_default"/>
+                            android:layout_marginTop="420dp"
+                            android:background="@drawable/button_file_shape"
+                            android:clickable="true" />
+
+                        <TextView
+                            android:layout_width="335dp"
+                            android:layout_height="58dp"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="420dp"
+                            android:text="@string/set_file"
+                            android:gravity="center"
+                            android:textColor="@color/white"
+                            android:textSize="24sp" />
 
                         <View
                             android:id="@+id/rectangle_6"
                             android:layout_width="335dp"
                             android:layout_height="58dp"
                             android:layout_marginStart="0dp"
-                            android:layout_marginTop="350dp"
+                            android:layout_marginTop="345dp"
                             android:background="@drawable/rectangle_6_shape"
-                            android:clickable="true"
-                            android:onClick="@{()->MainViewModel.authenticate()}" />
+                            android:clickable="true" />
+
 
                         <TextView
                             android:id="@+id/log_in"
                             android:layout_width="84dp"
                             android:layout_height="37dp"
                             android:layout_marginStart="138dp"
-                            android:layout_marginTop="366dp"
-                            android:text="@string/log_in_string"
+                            android:layout_marginTop="360dp"
+                            android:text="@string/save"
                             android:textColor="@color/welcome_back__color"
                             android:textSize="20sp"
                             android:textStyle="bold" />

@@ -31,13 +31,13 @@ public class MainViewModel extends ViewModel {
     public void authenticate() {
         String url = "http://10.0.2.2:8080/api/auth/authenticate";
         OkHttpClient client = new OkHttpClient();
-        String email = this.email.getValue();
-        String password = this.password.getValue();
-        if (email != null && password != null) {
+//        String email = this.email.getValue();
+//        String password = this.password.getValue();
+//        if (email != null && password != null) {
             JSONObject json = new JSONObject();
             try {
-                json.put("email", "string");
-                json.put("password", "string");
+                json.put("email", "a");
+                json.put("password", "a");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -64,6 +64,6 @@ public class MainViewModel extends ViewModel {
                     }
                 }
             });
-        }
+//        }
     }
 }
