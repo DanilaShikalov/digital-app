@@ -1,0 +1,145 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="SettingsViewModel"
+            type="com.example.digitalproject.ui.settings.SettingsViewModel" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+                <RelativeLayout
+                    android:id="@+id/page_google_pixel_2___1_ek1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="0dp">
+
+                    <View
+                        android:id="@+id/_bg__google_pixel_2___1_ek2"
+                        android:layout_width="411dp"
+                        android:layout_height="731dp"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="0dp"
+                        android:background="@drawable/_bg__google_pixel_2___1_ek2_shape" />
+
+                    <TextView
+                        android:id="@+id/welcome_back_"
+                        android:layout_width="176dp"
+                        android:layout_height="37dp"
+                        android:layout_marginStart="155dp"
+                        android:layout_marginTop="100dp"
+                        android:text="@string/Settings"
+                        android:textColor="@color/welcome_back__color"
+                        android:textSize="26sp"
+                        android:textStyle="bold" />
+
+                    <RelativeLayout
+                        android:id="@+id/group_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="38dp"
+                        android:layout_marginTop="170dp" >
+
+                        <View
+                            android:id="@+id/rectangle_4"
+                            android:layout_width="337dp"
+                            android:layout_height="60dp"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="0dp"
+                            android:background="@drawable/rectangle_4_shape" />
+
+                        <EditText
+                            android:id="@+id/your_email"
+                            android:layout_width="289dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="10dp"
+                            android:hint="@string/your_email_string"
+                            android:minHeight="48dp"
+                            android:text="@={MainViewModel.email}"
+                            android:textColor="@color/black"
+                            android:textSize="14sp" />
+
+                        <View
+                            android:layout_width="337dp"
+                            android:layout_height="60dp"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="74dp"
+                            android:background="@drawable/rectangle_5_shape" />
+
+                        <EditText
+                            android:id="@+id/your_password"
+                            android:layout_width="290dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="83dp"
+                            android:hint="@string/your_password_string"
+                            android:minHeight="48dp"
+                            android:text="@={MainViewModel.password}"
+                            android:textColor="@color/black"
+                            android:textSize="14sp" />
+
+                        <View
+                            android:id="@+id/rectangle_5"
+                            android:layout_width="337dp"
+                            android:layout_height="60dp"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="148dp"
+                            android:background="@drawable/rectangle_5_shape" />
+
+                        <EditText
+                            android:id="@+id/your_phone"
+                            android:layout_width="290dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="156dp"
+                            android:hint="@string/your_phone"
+                            android:minHeight="48dp"
+                            android:text="@={MainViewModel.password}"
+                            android:textColor="@color/black"
+                            android:textSize="14sp" />
+
+                        <Spinner
+                            android:id="@+id/spinner"
+                            android:layout_width="335dp"
+                            android:layout_height="58dp"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="222dp"
+                            android:background="@android:drawable/btn_dropdown_normal"
+                            android:spinnerMode="dropdown" />
+
+                        <Button
+                            android:id="@+id/choose_file_button"
+                            android:layout_width="335dp"
+                            android:layout_height="58dp"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="280dp"
+                            android:background="@android:drawable/btn_default"/>
+
+                        <View
+                            android:id="@+id/rectangle_6"
+                            android:layout_width="335dp"
+                            android:layout_height="58dp"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="350dp"
+                            android:background="@drawable/rectangle_6_shape"
+                            android:clickable="true"
+                            android:onClick="@{()->MainViewModel.authenticate()}" />
+
+                        <TextView
+                            android:id="@+id/log_in"
+                            android:layout_width="84dp"
+                            android:layout_height="37dp"
+                            android:layout_marginStart="138dp"
+                            android:layout_marginTop="366dp"
+                            android:text="@string/log_in_string"
+                            android:textColor="@color/welcome_back__color"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                    </RelativeLayout>
+                </RelativeLayout>
+    </LinearLayout>
+</layout>

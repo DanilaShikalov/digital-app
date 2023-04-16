@@ -16,4 +16,6 @@
     <color name="welcome_back__color">#FFFFFF</color>
     <color name="rectangle_4_color">#ffffff</color>
     <color name="rectangle_6_color">#2AC88F</color>
+    <color name="red">#FF0000</color>
+    <color name="gray">#635E5E</color>
 </resources>

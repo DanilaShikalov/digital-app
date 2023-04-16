@@ -1,67 +1,3 @@
-<!--<?xml version="1.0" encoding="utf-8"?>-->
-<!--<layout xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--    xmlns:tools="http://schemas.android.com/tools">-->
-<!--    <data>-->
-<!--        <variable-->
-<!--            name="MainViewModel"-->
-<!--            type="com.example.digitalproject.viewmodels.MainViewModel" />-->
-<!--    </data>-->
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:divider="@drawable/divider"-->
-<!--        android:orientation="vertical"-->
-<!--        android:paddingLeft="100dp"-->
-<!--        android:paddingTop="150dp"-->
-<!--        android:paddingRight="100dp"-->
-<!--        android:showDividers="middle"-->
-<!--        tools:context=".MainActivity">-->
-
-<!--        <ImageView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="161dp"-->
-<!--            android:src="@drawable/icon" />-->
-
-<!--        <EditText-->
-<!--            android:id="@+id/login_edittext"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:hint="@string/login_edittext"-->
-<!--            android:minHeight="48dp"-->
-<!--            android:text="@={MainViewModel.email}"/>-->
-
-<!--        <EditText-->
-<!--            android:id="@+id/pass_edittext"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:hint="@string/password"-->
-<!--            android:minHeight="48dp"-->
-<!--            android:text="@={MainViewModel.password}"/>-->
-
-<!--        <Button-->
-<!--            android:id="@+id/login_button"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="@string/login"-->
-<!--            android:onClick="@{()->MainViewModel.authenticate()}"/>-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/button_sing_up"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:gravity="center"-->
-<!--            android:text="@string/sing_up" />-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/text_error"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:gravity="center"-->
-<!--            android:textSize="24sp" />-->
-
-<!--    </LinearLayout>-->
-<!--</layout>-->
-
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
         <variable
@@ -441,6 +377,15 @@
                             android:textSize="20sp"
                             android:textStyle="bold" />
 
+                        <TextView
+                            android:id="@+id/sing_up_button"
+                            android:layout_width="84dp"
+                            android:layout_height="37dp"
+                            android:layout_marginStart="138dp"
+                            android:layout_marginTop="215dp"
+                            android:text="@string/sing_up_under"
+                            android:textColor="@color/white"
+                            android:textSize="18sp" />
                     </RelativeLayout>
 
                 </RelativeLayout>

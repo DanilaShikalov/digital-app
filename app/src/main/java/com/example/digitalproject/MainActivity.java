@@ -25,13 +25,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        try {
+            this.getSupportActionBar().hide();
+        } catch (NullPointerException e) {}
         mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
         activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         activityMainBinding.setMainViewModel(mainViewModel);
         activityMainBinding.setLifecycleOwner(this);
 
-
-//        mainViewModel.info.observe(this, str -> activityMainBinding.textError.setText(str));
         mainViewModel.mainModelMutableLiveData.observe(this, model -> {
             ((GlobalVariables) this.getApplication()).setToken_access(model.getToken());
             Toast.makeText(this, "Добро пожаловать!", Toast.LENGTH_SHORT).show();
@@ -39,13 +40,10 @@ public class MainActivity extends AppCompatActivity {
             MainActivity.this.startActivity(intent);
         });
 
-//        activityMainBinding.buttonSingUp.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(MainActivity.this, SingUpActivity.class);
-//                MainActivity.this.startActivity(intent);
-//            }
-//        });
+        activityMainBinding.singUpButton.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, SingUpActivity.class);
+            MainActivity.this.startActivity(intent);
+        });
     }
 }
 
