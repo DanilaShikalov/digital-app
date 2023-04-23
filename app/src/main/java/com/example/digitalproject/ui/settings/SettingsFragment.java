@@ -9,16 +9,22 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 
+import com.example.digitalproject.LoginActivity;
+import com.example.digitalproject.MainActivity;
 import com.example.digitalproject.databinding.FragmentSettingsBinding;
 import com.example.digitalproject.globalvar.GlobalVariables;
+import com.example.digitalproject.viewmodels.MainViewModel;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -35,23 +41,60 @@ import okhttp3.RequestBody;
 public class SettingsFragment extends Fragment {
 
     private FragmentSettingsBinding binding;
+    private String job = null;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         SettingsViewModel settingsViewModel =
-                new ViewModelProvider(this).get(SettingsViewModel.class);
+                ViewModelProviders.of(this).get(SettingsViewModel.class);
 
         binding = FragmentSettingsBinding.inflate(inflater, container, false);
         settingsViewModel.setToken(((GlobalVariables) requireActivity().getApplication()).getToken_access());
         List<String> jobs = new ArrayList<>();
+        jobs.add("---Choose Job---");
         settingsViewModel.listJobs.observe(requireActivity(), jobs::addAll);
         settingsViewModel.getJobs();
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this.getContext(), android.R.layout.simple_spinner_item, jobs);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_spinner_item, jobs);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         binding.spinner.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+        binding.spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if (i != 0) {
+                    String item = adapterView.getItemAtPosition(i).toString();
+                    job = item;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+            }
+        });
+
+        binding.saveJob.setOnClickListener(view -> {
+            if (!job.equals("---Choose Job---")) {
+                settingsViewModel.changeJob(job);
+            }
+        });
 
         binding.chooseFileButton.setOnClickListener(view -> showFileChooser());
-
+        binding.setSettingsViewModel(settingsViewModel);
+        settingsViewModel.emailChanged.observe(requireActivity(), s -> {
+            Toast.makeText(this.getContext(), "Email saved", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(requireActivity(), MainActivity.class);
+            this.startActivity(intent);
+        });
+        settingsViewModel.passwordChanged.observe(requireActivity(), s -> {
+            Toast.makeText(this.getContext(), "Password saved", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(requireActivity(), MainActivity.class);
+            this.startActivity(intent);
+        });
+        settingsViewModel.phoneChanged.observe(requireActivity(), s -> {
+            Toast.makeText(this.getContext(), "Phone saved", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(requireActivity(), MainActivity.class);
+            this.startActivity(intent);
+        });
         return binding.getRoot();
     }
 

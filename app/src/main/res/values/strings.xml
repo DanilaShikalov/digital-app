@@ -32,5 +32,9 @@
     <string name="Settings">Settings</string>
     <string name="your_phone">Your phone</string>
     <string name="set_file">Add document</string>
-    <string name="save">Save</string>
+    <string name="save">Save job</string>
+    <string name="save_text">Save</string>
+    <string name="choose_job">Choose job</string>
+    <string name="chat">Chat</string>
+    <string name="write_a_message">Write a message</string>
 </resources>

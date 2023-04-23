@@ -18,8 +18,11 @@ import java.util.List;
 
 import okhttp3.Call;
 import okhttp3.Callback;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class SettingsViewModel extends ViewModel {
@@ -27,6 +30,13 @@ public class SettingsViewModel extends ViewModel {
     private final MutableLiveData<String> mText;
     public MutableLiveData<List<String>> listJobs = new MutableLiveData<>();
     private String token;
+    public MutableLiveData<String> email = new MutableLiveData<>();
+    public MutableLiveData<String> password = new MutableLiveData<>();
+    public MutableLiveData<String> phone = new MutableLiveData<>();
+    public MutableLiveData<String> emailChanged = new MutableLiveData<>();
+    public MutableLiveData<String> passwordChanged = new MutableLiveData<>();
+    public MutableLiveData<String> phoneChanged = new MutableLiveData<>();
+    public MutableLiveData<String> jobChanged = new MutableLiveData<>();
 
     public SettingsViewModel() {
         mText = new MutableLiveData<>();
@@ -63,6 +73,101 @@ public class SettingsViewModel extends ViewModel {
                 }
             }
         });
+    }
+
+    public void saveEmail() {
+        String email = this.email.getValue();
+        if (email != null) {
+            OkHttpClient client = new OkHttpClient();
+            RequestBody requestBody = RequestBody.create(null, new byte[0]);
+            Request request = new Request.Builder()
+                    .url(String.format("%s?email=%s", "http://10.0.2.2:8080/api/persons/person/email", email))
+                    .put(requestBody)
+                    .addHeader("Authorization", "Bearer ".concat(token))
+                    .build();
+            client.newCall(request).enqueue(new Callback() {
+                @Override
+                public void onFailure(@NonNull Call call, @NonNull IOException e) {
+
+                }
+
+                @Override
+                public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+                    emailChanged.postValue("changed");
+                }
+            });
+        }
+    }
+
+
+    public void savePassword() {
+        String password = this.password.getValue();
+        if (password != null) {
+            OkHttpClient client = new OkHttpClient();
+            RequestBody requestBody = RequestBody.create(null, new byte[0]);
+            Request request = new Request.Builder()
+                    .url(String.format("%s?password=%s", "http://10.0.2.2:8080/api/persons/person/password", password))
+                    .put(requestBody)
+                    .addHeader("Authorization", "Bearer ".concat(token))
+                    .build();
+            client.newCall(request).enqueue(new Callback() {
+                @Override
+                public void onFailure(@NonNull Call call, @NonNull IOException e) {
+
+                }
+
+                @Override
+                public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+                    passwordChanged.postValue("changed");
+                }
+            });
+        }
+    }
+
+    public void changeJob(String job) {
+        OkHttpClient client = new OkHttpClient();
+        RequestBody requestBody = RequestBody.create(null, new byte[0]);
+        Request request = new Request.Builder()
+                .url(String.format("%s?job=%s", "http://10.0.2.2:8080/api/jobs/job/person", job))
+                .put(requestBody)
+                .addHeader("Authorization", "Bearer ".concat(token))
+                .build();
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(@NonNull Call call, @NonNull IOException e) {
+
+            }
+
+            @Override
+            public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+                jobChanged.postValue("changed");
+            }
+        });
+    }
+
+    public void savePhone() {
+        String phone = this.phone.getValue();
+        Log.i("Phone", phone);
+        if (phone != null) {
+            OkHttpClient client = new OkHttpClient();
+            RequestBody requestBody = RequestBody.create(null, new byte[0]);
+            Request request = new Request.Builder()
+                    .url(String.format("%s?phone=%s", "http://10.0.2.2:8080/api/persons/person/phone", phone))
+                    .put(requestBody)
+                    .addHeader("Authorization", "Bearer ".concat(token))
+                    .build();
+            client.newCall(request).enqueue(new Callback() {
+                @Override
+                public void onFailure(@NonNull Call call, @NonNull IOException e) {
+
+                }
+
+                @Override
+                public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+                    phoneChanged.postValue("changed");
+                }
+            });
+        }
     }
 
     public LiveData<String> getText() {
