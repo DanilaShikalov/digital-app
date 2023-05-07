@@ -56,6 +56,10 @@ public class MessageAdapter extends BaseAdapter {
         notifyDataSetChanged();
     }
 
+    public void clear() {
+        messages.clear();
+    }
+
     @Override
     public int getCount() {
         return messages.size();
