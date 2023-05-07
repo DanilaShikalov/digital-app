@@ -37,4 +37,19 @@
     <string name="choose_job">Choose job</string>
     <string name="chat">Chat</string>
     <string name="write_a_message">Write a message</string>
+    <string name="cheel____string">Cheel...</string>
+    <string name="name_string">Name</string>
+    <string name="surname_string">Surname</string>
+    <string name="phone_string">Phone</string>
+    <string name="name_ek1_string">name</string>
+    <string name="name_ek2_string">name</string>
+    <string name="name_ek3_string">name</string>
+    <string name="email_string">Email</string>
+    <string name="salary_string">Salary</string>
+    <string name="position_string">Position</string>
+    <string name="name_ek4_string">name</string>
+    <string name="name_ek5_string">name</string>
+    <string name="name_ek6_string">name</string>
+    <string name="average_rating_string">Average rating</string>
+    <string name="name_ek7_string">name</string>
 </resources>
