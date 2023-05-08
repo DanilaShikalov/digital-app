@@ -52,4 +52,6 @@
     <string name="name_ek6_string">name</string>
     <string name="average_rating_string">Average rating</string>
     <string name="name_ek7_string">name</string>
+    <string name="menu_document" />
+    <string name="menu_documents">Documents</string>
 </resources>
