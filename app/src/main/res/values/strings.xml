@@ -52,6 +52,15 @@
     <string name="name_ek6_string">name</string>
     <string name="average_rating_string">Average rating</string>
     <string name="name_ek7_string">name</string>
-    <string name="menu_document" />
+    <string name="menu_document">qwe</string>
     <string name="menu_documents">Documents</string>
+    <string name="_______________string"> </string>
+    <string name="_________________string">Choose table</string>
+    <string name="______________string">Choose field</string>
+    <string name="_____________________string">Choose type of query</string>
+    <string name="_______________ek1_string">Choose schema</string>
+    <string name="__________string">Execute</string>
+    <string name="menu_subject">Subjects</string>
+    <string name="set_grade">Set grade</string>
+    <string name="save_answer">Save answer</string>
 </resources>

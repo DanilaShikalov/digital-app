@@ -1,0 +1,74 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="TasksViewModel"
+            type="com.example.digitalproject.viewmodels.TasksViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/purple_700"
+        android:clipToPadding="false"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Tasks"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:background="@drawable/border_title"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="200sp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Description"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    android:background="@drawable/border_title"/>
+
+                <TextView
+                    android:layout_width="105sp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Start"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    android:background="@drawable/border_title"/>
+
+                <TextView
+                    android:layout_width="105sp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="End"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    android:background="@drawable/border_title"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/tasks_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:divider="#fff" />
+
+    </LinearLayout>
+</layout>
