@@ -1,19 +1,18 @@
 package com.example.digitalproject;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+
 import com.example.digitalproject.adapters.TasksAdapter;
 import com.example.digitalproject.databinding.ActivityTasksBinding;
-import com.example.digitalproject.databinding.FragmentSubjectBinding;
 import com.example.digitalproject.globalvar.GlobalVariables;
 import com.example.digitalproject.models.TaskModel;
 import com.example.digitalproject.viewmodels.TasksViewModel;

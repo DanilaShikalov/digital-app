@@ -1,11 +1,16 @@
 package com.example.digitalproject;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,7 +26,18 @@ import com.example.digitalproject.models.TaskModel;
 import com.example.digitalproject.viewmodels.AnswerViewModel;
 import com.example.digitalproject.viewmodels.TasksViewModel;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 public class AnswerActivity extends AppCompatActivity {
     private ActivityAnswerBinding binding;
@@ -66,5 +82,64 @@ public class AnswerActivity extends AppCompatActivity {
         });
 
         answerViewModel.getAnswersWithPerson();
+
+        binding.saveAnswer.setOnClickListener(view -> showFileChooser());;
+    }
+
+    public void showFileChooser() {
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+
+        intent.setType("*/*");
+
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
+
+        startActivityForResult(intent, 2000);
+    }
+
+    @SuppressLint("RestrictedApi")
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        String token = ((GlobalVariables) this.getApplication()).getToken_access();
+        String subject = getIntent().getStringExtra("subject");
+        String task = getIntent().getStringExtra("task");
+        String url = String.format("http://10.0.2.2:8080/api/answers/mongo/answer-by-token/?subject=%s&task=%s", subject, task).replaceAll(" ", "%20");
+        if (requestCode == 2000) {
+            if (resultCode == Activity.RESULT_OK) {
+                Uri fileUri = data.getData();
+                try {
+                    InputStream in = this.getContentResolver().openInputStream(fileUri);
+                    byte[] bytes = new byte[in.available()];
+                    in.read(bytes);
+
+                    OkHttpClient client = new OkHttpClient();
+                    RequestBody requestBody = new MultipartBody.Builder()
+                            .setType(MultipartBody.FORM)
+                            .addFormDataPart("multipartFile", "file.txt", RequestBody.create(bytes,
+                                    MediaType.parse("multipart/form-data")))
+                            .build();
+                    Request request = new Request.Builder()
+                            .post(requestBody)
+                            .url(url)
+                            .addHeader("Authorization", "Bearer ".concat(token))
+                            .build();
+                    Log.i("URL", url);
+                    client.newCall(request).enqueue(new Callback() {
+                        @Override
+                        public void onFailure(@NonNull Call call, @NonNull IOException e) {
+
+                        }
+
+                        @Override
+                        public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+
+                        }
+                    });
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }

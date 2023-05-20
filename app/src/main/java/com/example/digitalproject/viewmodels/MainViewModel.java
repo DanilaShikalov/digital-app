@@ -31,36 +31,35 @@ public class MainViewModel extends ViewModel {
     public void authenticate() {
         String url = "http://10.0.2.2:8080/api/auth/authenticate";
         OkHttpClient client = new OkHttpClient();
-            JSONObject json = new JSONObject();
-            try {
-                json.put("email", "a");
-                json.put("password", "a");
-            } catch (JSONException e) {
+        JSONObject json = new JSONObject();
+        try {
+            json.put("email", email.getValue());
+            json.put("password", password.getValue());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        Request request = new Request.Builder().post(RequestBody.create(json.toString(), MediaType.parse("application/json; charset=utf-8"))).url(url).build();
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+                if (response.isSuccessful()) {
+                    String resp = Objects.requireNonNull(response.body()).string();
+                    Log.i("Token", resp);
+                    try {
+                        JSONObject jsonObject = new JSONObject(resp);
+                        mainModelMutableLiveData.postValue(new MainModel(jsonObject.getString("token")));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                } else if (response.code() >= 400 && response.code() < 500) {
+                    info.postValue("Ошибка");
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call call, @NonNull IOException e) {
                 e.printStackTrace();
             }
-            Request request = new Request.Builder().post(RequestBody.create(json.toString(), MediaType.parse("application/json; charset=utf-8"))).url(url).build();
-            client.newCall(request).enqueue(new Callback() {
-                @Override
-                public void onFailure(@NonNull Call call, @NonNull IOException e) {
-                    e.printStackTrace();
-                }
-
-                @Override
-                public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-                    if (response.isSuccessful()) {
-                        String resp = Objects.requireNonNull(response.body()).string();
-                        Log.i("Token", resp);
-                        try {
-                            JSONObject jsonObject = new JSONObject(resp);
-                            mainModelMutableLiveData.postValue(new MainModel(jsonObject.getString("token")));
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    } else if (response.code() >= 400 && response.code() < 500) {
-                        info.postValue("Ошибка");
-                    }
-                }
-            });
-//        }
+        });
     }
 }
