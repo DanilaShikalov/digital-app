@@ -33,13 +33,13 @@
 
                 <View
                     android:layout_width="335dp"
-                    android:layout_height="280dp"
+                    android:layout_height="480dp"
                     android:background="@color/white"/>
 
                 <TextView
                     android:id="@+id/answer_text"
                     android:layout_width="335dp"
-                    android:layout_height="280dp"
+                    android:layout_height="480dp"
                     android:textSize="18sp"
                     android:textColor="@color/black"
                     android:text="Ну я там сделал много чего. Выучил всю историю человечества"/>
@@ -49,36 +49,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="120dp"
-                    android:layout_marginTop="365dp"
+                    android:layout_marginTop="565dp"
                     android:text="Grade: 5"
                     android:textColor="@color/white"
                     android:textSize="24sp"/>
-
-                <View
-                    android:id="@+id/choose_file_button"
-                    android:layout_width="335dp"
-                    android:layout_height="58dp"
-                    android:layout_marginStart="0dp"
-                    android:layout_marginTop="405dp"
-                    android:background="@drawable/button_file_shape"
-                    android:clickable="true" />
-
-                <TextView
-                    android:layout_width="335dp"
-                    android:layout_height="58dp"
-                    android:layout_marginStart="0dp"
-                    android:layout_marginTop="405dp"
-                    android:text="@string/save_answer"
-                    android:gravity="center"
-                    android:textColor="@color/white"
-                    android:textSize="24sp" />
 
                 <View
                     android:id="@+id/save_grade"
                     android:layout_width="335dp"
                     android:layout_height="58dp"
                     android:layout_marginStart="0dp"
-                    android:layout_marginTop="300dp"
+                    android:layout_marginTop="500dp"
                     android:background="@drawable/rectangle_6_shape"
                     android:clickable="true" />
 
@@ -88,7 +69,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="37dp"
                     android:layout_marginStart="130dp"
-                    android:layout_marginTop="315dp"
+                    android:layout_marginTop="515dp"
                     android:text="@string/set_grade"
                     android:textColor="@color/welcome_back__color"
                     android:textSize="20sp"
