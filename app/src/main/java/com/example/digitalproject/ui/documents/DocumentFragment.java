@@ -38,6 +38,8 @@ public class DocumentFragment extends Fragment {
         documentViewModel.documents.observe(requireActivity(), new Observer<List<DocumentModel>>() {
             @Override
             public void onChanged(List<DocumentModel> documentModels) {
+                documentAdapter.clear();
+                documentAdapter.notifyDataSetChanged();
                 documentModels.forEach(x -> documentAdapter.add(x));
                 documentAdapter.notifyDataSetChanged();
             }

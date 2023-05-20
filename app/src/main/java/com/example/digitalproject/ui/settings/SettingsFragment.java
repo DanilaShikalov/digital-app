@@ -26,17 +26,21 @@ import com.example.digitalproject.databinding.FragmentSettingsBinding;
 import com.example.digitalproject.globalvar.GlobalVariables;
 import com.example.digitalproject.viewmodels.MainViewModel;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
+import okhttp3.Call;
+import okhttp3.Callback;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
+import okhttp3.Response;
 
 public class SettingsFragment extends Fragment {
 
@@ -132,9 +136,20 @@ public class SettingsFragment extends Fragment {
                             .url("http://10.0.2.2:8080/api/documents/mongo/document/")
                             .addHeader("Authorization", "Bearer ".concat(token))
                             .build();
-                    client.newCall(request).execute();
-                } catch (Exception e) {
+                    client.newCall(request).enqueue(new Callback() {
+                        @Override
+                        public void onFailure(@NonNull Call call, @NonNull IOException e) {
 
+                        }
+
+                        @Override
+                        public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+
+                        }
+                    });
+                    Toast.makeText(requireActivity(), "Document saved", Toast.LENGTH_SHORT).show();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         }

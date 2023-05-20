@@ -39,6 +39,8 @@ public class SubjectFragment extends Fragment {
         subjectViewModel.subject.observe(requireActivity(), new Observer<List<String>>() {
             @Override
             public void onChanged(List<String> strings) {
+                subjectAdapter.clear();
+                subjectAdapter.notifyDataSetChanged();
                 strings.forEach(x -> subjectAdapter.add(x));
                 subjectAdapter.notifyDataSetChanged();
             }
